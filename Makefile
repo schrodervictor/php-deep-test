@@ -3,9 +3,12 @@ BUILD_DIR = lib
 COMPOSER = bin/composer
 COMPOSER_SOURCE = https://getcomposer.org/download/1.4.2/composer.phar
 
+PHPUNIT = vendor/bin/phpunit
+
 default: build-dev
 
 .PHONY: build build-dev composer-build
+.PHONY: test test-unit
 
 build: COMPOSER_FLAGS = --no-dev
 build: composer-build
@@ -14,6 +17,11 @@ build: composer-build
 build-dev: COMPOSER_FLAGS = --dev
 build-dev: composer-build
 	@echo 'Build-dev successful!'
+
+test: test-unit
+
+test-unit: build-dev
+	$(PHPUNIT) --configuration tests/unit.xml $(PHPUNIT_FLAGS)
 
 composer-build: $(COMPOSER) vendor
 
