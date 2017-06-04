@@ -1,0 +1,9 @@
+{
+  "name": "schrodervictor/php-deep-test",
+  "autoload": {
+    "psr-4": {
+      "": "lib/",
+      "DeepTest\\": ["lib/DeepTest/"]
+    }
+  }
+}
