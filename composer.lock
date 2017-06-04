@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "9196bcc30622cc29231dbba61136c0ef",
+    "content-hash": "d704ce67bf0aa3393062249c24a7b88e",
     "packages": [],
     "packages-dev": [
         {
@@ -808,6 +808,41 @@
             "time": "2017-03-03T06:30:20+00:00"
         },
         {
+            "name": "schrodervictor/php-the-class",
+            "version": "v0.0.1-ALPHA",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/schrodervictor/php-the-class.git",
+                "reference": "10ee2de389dd21712ae0eaf256025716756ea257"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/schrodervictor/php-the-class/zipball/10ee2de389dd21712ae0eaf256025716756ea257",
+                "reference": "10ee2de389dd21712ae0eaf256025716756ea257",
+                "shasum": ""
+            },
+            "require-dev": {
+                "phpunit/phpunit": "*"
+            },
+            "type": "library",
+            "autoload": {
+                "psr-0": {
+                    "PHP": "lib"
+                }
+            },
+            "authors": [
+                {
+                    "name": "Victor Schroeder",
+                    "email": "schrodervictor@gmail.com"
+                }
+            ],
+            "support": {
+                "source": "https://github.com/schrodervictor/php-the-class/tree/v0.0.1-dev",
+                "issues": "https://github.com/schrodervictor/php-the-class/issues"
+            },
+            "time": "2017-06-04T15:41:25+00:00"
+        },
+        {
             "name": "sebastian/code-unit-reverse-lookup",
             "version": "1.0.1",
             "source": {
@@ -1458,7 +1493,7 @@
         }
     ],
     "aliases": [],
-    "minimum-stability": "stable",
+    "minimum-stability": "alpha",
     "stability-flags": [],
     "prefer-stable": false,
     "prefer-lowest": false,

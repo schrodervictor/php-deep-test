@@ -1,12 +1,20 @@
 {
   "name": "schrodervictor/php-deep-test",
+  "repositories": [
+    {
+      "type": "vcs",
+      "url": "https://github.com/schrodervictor/php-the-class"
+    }
+  ],
   "require-dev": {
-    "phpunit/phpunit": "*"
+    "phpunit/phpunit": "*",
+    "schrodervictor/php-the-class": ">=0.0.1"
   },
   "autoload": {
     "psr-4": {
       "": "lib/",
       "DeepTest\\": ["lib/DeepTest/"]
     }
-  }
+  },
+  "minimum-stability": "alpha"
 }
