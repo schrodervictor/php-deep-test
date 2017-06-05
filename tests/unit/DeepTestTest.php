@@ -5,7 +5,7 @@ use PHPUnit\Framework\TestCase;
 class DeepTestTest extends TestCase
 {
     /**
-     * In a separate state and without global state to avoid any previously
+     * In a separate process and without global state to avoid any previously
      * loaded classes
      *
      * @preserveGlobalState disabled
@@ -15,8 +15,7 @@ class DeepTestTest extends TestCase
     {
         $this->assertFalse(class_exists('PHP', false));
 
-        // This is here only to trigger the autoloader for DeepTest
-        class_exists('DeepTest');
+        DeepTest::activate();
 
         $this->assertTrue(class_exists('PHP'));
         $this->assertSame('DeepTest', PHP::INTERPRETER);
@@ -24,21 +23,33 @@ class DeepTestTest extends TestCase
 
 
     /**
-     * In a separate state and without global state to avoid any previously
+     * In a separate process and without global state to avoid any previously
      * loaded classes
      *
      * @preserveGlobalState disabled
      * @runInSeparateProcess
+     *
      * @expectedException DeepTest\Exception\InvalidUsage
      */
     public function testShouldThrowExceptionIfPHPClassIsAlreadyLoaded()
     {
         $this->assertFalse(class_exists('PHP', false));
 
-        // Trigger the autoload of the PHP before DeepTest
+        // Trigger the autoload of the PHP class before DeepTest
         $this->assertTrue(class_exists('PHP'));
 
-        // Trigger the autoload for DeepTest
-        class_exists('DeepTest');
+        DeepTest::activate();
+    }
+
+
+    public function testShouldBeAbleToActivateAndDeactivate()
+    {
+        $this->assertFalse(DeepTest::isActive());
+
+        DeepTest::activate();
+        $this->assertTrue(DeepTest::isActive());
+
+        DeepTest::deactivate();
+        $this->assertFalse(DeepTest::isActive());
     }
 }
