@@ -8,7 +8,7 @@
   ],
   "require-dev": {
     "phpunit/phpunit": "*",
-    "schrodervictor/php-the-class": ">=0.0.1"
+    "schrodervictor/php-the-class": "0.0.2-alpha"
   },
   "autoload": {
     "psr-4": {

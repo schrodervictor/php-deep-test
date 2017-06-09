@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "content-hash": "d704ce67bf0aa3393062249c24a7b88e",
+    "content-hash": "d85f5dda720ea1144facf750b61b89e5",
     "packages": [],
     "packages-dev": [
         {
@@ -809,16 +809,16 @@
         },
         {
             "name": "schrodervictor/php-the-class",
-            "version": "v0.0.1-ALPHA",
+            "version": "v0.0.2-ALPHA",
             "source": {
                 "type": "git",
                 "url": "https://github.com/schrodervictor/php-the-class.git",
-                "reference": "10ee2de389dd21712ae0eaf256025716756ea257"
+                "reference": "ed167ab7de5bff3946bdbc7c04fcf5f0cb170c58"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/schrodervictor/php-the-class/zipball/10ee2de389dd21712ae0eaf256025716756ea257",
-                "reference": "10ee2de389dd21712ae0eaf256025716756ea257",
+                "url": "https://api.github.com/repos/schrodervictor/php-the-class/zipball/ed167ab7de5bff3946bdbc7c04fcf5f0cb170c58",
+                "reference": "ed167ab7de5bff3946bdbc7c04fcf5f0cb170c58",
                 "shasum": ""
             },
             "require-dev": {
@@ -837,10 +837,10 @@
                 }
             ],
             "support": {
-                "source": "https://github.com/schrodervictor/php-the-class/tree/v0.0.1-dev",
+                "source": "https://github.com/schrodervictor/php-the-class/tree/v0.0.2-ALPHA",
                 "issues": "https://github.com/schrodervictor/php-the-class/issues"
             },
-            "time": "2017-06-04T15:41:25+00:00"
+            "time": "2017-06-06T14:46:04+00:00"
         },
         {
             "name": "sebastian/code-unit-reverse-lookup",
@@ -1494,7 +1494,9 @@
     ],
     "aliases": [],
     "minimum-stability": "alpha",
-    "stability-flags": [],
+    "stability-flags": {
+        "schrodervictor/php-the-class": 15
+    },
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": [],

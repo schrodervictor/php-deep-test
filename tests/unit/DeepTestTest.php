@@ -97,4 +97,29 @@ class DeepTestTest extends TestCase
 
         $this->assertFalse(PHP::file_exists($filename));
     }
+
+
+    public function testShouldBeAbleToStubFunctionsWithArgsPassedByReference()
+    {
+        DeepTest::activate();
+
+        DeepTest::func('exec', function($cmd, &$output = null, &$code = 0) {
+            if ($cmd === '# do some magic') {
+                $cmd = 'This change should not be seem outside';
+                $output = "The answer is:\n42\n";
+                $code = 3;
+                return '42';
+            }
+            return exec($cmd, $output, $code);
+        });
+
+        $cmd = '# do some magic';
+
+        $result = PHP::exec($cmd, $output, $code);
+
+        $this->assertSame('# do some magic', $cmd);
+        $this->assertSame('42', $result);
+        $this->assertSame("The answer is:\n42\n", $output);
+        $this->assertSame(3, $code);
+    }
 }

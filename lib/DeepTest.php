@@ -14,7 +14,7 @@ class DeepTest
     private static $PHPLoadedByUs = false;
 
 
-    public static function invoke($function, $args) {
+    public static function invokeArray($function, $args) {
 
         if (array_key_exists($function, static::$stubs)) {
             $callable = static::$stubs[$function];
@@ -22,6 +22,36 @@ class DeepTest
         }
 
         return call_user_func_array($function, $args);
+    }
+
+
+    public static function invoke(
+        $function,
+        &$arg0 = null, &$arg1 = null, &$arg2 = null,
+        &$arg3 = null, &$arg4 = null, &$arg5 = null
+    ) {
+        $callable = new ReflectionFunction($function);
+
+        $argsNeeded = $callable->getParameters();
+        $numArgsNeeded = count($argsNeeded);
+
+        $invokeArgs = [];
+
+        for ($i = 0; $i < $numArgsNeeded; $i++) {
+            $argX = "arg$i";
+            if ($argsNeeded[$i]->isPassedByReference()) {
+                $invokeArgs[] =& $$argX;
+            } else {
+                $invokeArgs[] = $$argX;
+            }
+        }
+
+        if (array_key_exists($function, static::$stubs)) {
+            $stub = static::$stubs[$function];
+            $callable = new ReflectionFunction($stub);
+        }
+
+        return $callable->invokeArgs($invokeArgs);
     }
 
 
